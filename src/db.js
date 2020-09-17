@@ -1,11 +1,40 @@
 const mongoose = require('mongoose');
-mongoose.createConnection('mongodb://localhost:27017/frcms', {useNewUrlParser: true, useUnifiedTopology: true})
+
+const auth = require("./dbauth.json")
+
+mongoose.connect(auth.uri, {useNewUrlParser: true, useUnifiedTopology: true})
 
 mongoose.connection.on("open", function(ref) {
-    console.log("Connected to mongo server.");
+    console.log("Connected to the MongoDB server.");
+    var collections = ["users", "blogposts", "media", "analytics", "pages"]
+    collections.forEach(coll => {
+        mongoose.connection.db.listCollections({name: coll})
+        .next(function(err, collinfo) {
+            if (!collinfo) {
+                switch (coll) {
+                    case "users":
+                        Users.createCollection()
+                        break;
+                    case "blogposts":
+                        BlogPosts.createCollection()
+                        break;
+                    case "media":
+                        Media.createCollection()
+                        break;
+                    case "analytics":
+                        Analytics.createCollection()
+                        break;
+                    case "pages":
+                        Pages.createCollection()
+                        break;
+                }
+            }
+        });
+    })
+
 });
   
-  mongoose.connection.on("error", function(err) {
+mongoose.connection.on("error", function(err) {
     console.log("Could not connect to mongo server!");
     return console.log(err);
 });
@@ -21,8 +50,6 @@ const Users = mongoose.model('Users', new mongoose.Schema({
     },
     slackUsername: String,
     createdAt: { type: Date, default: Date.now() }
-}, {
-    autoCreate: true
 }))
 
 const BlogPosts = mongoose.model('BlogPosts', new mongoose.Schema({
@@ -40,8 +67,6 @@ const BlogPosts = mongoose.model('BlogPosts', new mongoose.Schema({
     }],
     createdAt: { type: Date, default: Date.now() },
     modifiedAt: { type: Date, default: Date.now() }
-}, {
-    autoCreate: true
 }))
 
 const Pages = mongoose.model('Pages', new mongoose.Schema({
@@ -49,24 +74,19 @@ const Pages = mongoose.model('Pages', new mongoose.Schema({
     
     createdAt: { type: Date, default: Date.now() },
     modifiedAt: { type: Date, default: Date.now() }
-}, {
-    autoCreate: true
 }))
 
 const Analytics = mongoose.model('Analytics', new mongoose.Schema({
 
     createdAt: { type: Date, default: Date.now() },
     modifiedAt: { type: Date, default: Date.now() }
-}, {
-    autoCreate: true
 }))
 
 const Media = mongoose.model('Media', new mongoose.Schema({
 
     createdAt: { type: Date, default: Date.now() },
     modifiedAt: { type: Date, default: Date.now() }
-}, {
-    autoCreate: true
 }))
+
 
 module.exports = Users, BlogPosts, Pages, Analytics, Media

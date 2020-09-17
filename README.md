@@ -10,10 +10,13 @@ FRCMS was created using Express.JS and Handlebars.JS, alongside with MariaDB as 
 ## Installation
 ## Self Hosted
 ### Installation with Docker (recommended)
-Without NGINX:
+Without NGINX and MongoDB: (If you already have a MongoDB server set up)
 ```$ sudo docker run -d -p 80:80 -p 443:443 --name=frcms --restart=always -v frcms_data:/usr/src/app jackmerrill/frcms```
 
-With NGINX:
+Without NGINX and with MongoDB:
+SOON™️ (Docker Compose)
+
+With NGINX and MongoDB: (If you don't have a MongoDB server set up)
 SOON™️
 ### Installation without Docker
 
