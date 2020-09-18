@@ -64,10 +64,16 @@ socket.io.on('connection', function(client) {
 })
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
+  var user
+  await db.Users.findOne({ "userData.token": req.session.token }, function (err, doc) {
+    if (err) return console.error(err)
+    user = doc.toObject()
+  })
   res.render('admin/dash', {
     "cpu": GetCPUPercentage(),
-    "connected": count
+    "connected": count,
+    "user": user
   });
 });
 
