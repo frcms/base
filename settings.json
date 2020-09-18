@@ -1,0 +1,10 @@
+{
+  "mail": {
+    "service": "SMTP",
+    "username": "me",
+    "password": "Chrome1738!",
+    "host": "smtp.zoho.com",
+    "port": "587",
+    "secure": true
+  }
+}

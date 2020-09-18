@@ -49,6 +49,9 @@ const Users = mongoose.model('Users', new mongoose.Schema({
         last: String
     },
     slackUsername: String,
+    userData: { type: JSON, default: {} },
+    permissions: JSON,
+    roles: JSON,
     createdAt: { type: Date, default: Date.now() }
 }))
 
@@ -71,22 +74,29 @@ const BlogPosts = mongoose.model('BlogPosts', new mongoose.Schema({
 
 const Pages = mongoose.model('Pages', new mongoose.Schema({
     pageTitle: String,
-    
+    pageData: JSON,
     createdAt: { type: Date, default: Date.now() },
     modifiedAt: { type: Date, default: Date.now() }
 }))
 
 const Analytics = mongoose.model('Analytics', new mongoose.Schema({
-
+    dataType: String,
+    data: JSON,
     createdAt: { type: Date, default: Date.now() },
     modifiedAt: { type: Date, default: Date.now() }
 }))
 
 const Media = mongoose.model('Media', new mongoose.Schema({
-
+    mediaType: String,
+    mediaLocation: String,
+    mediaTitle: String,
+    mediaCaption: String,
+    mediaAltTxt: String,
+    mediaDesc: String,
+    mediaUploader: String,
     createdAt: { type: Date, default: Date.now() },
     modifiedAt: { type: Date, default: Date.now() }
 }))
 
 
-module.exports = Users, BlogPosts, Pages, Analytics, Media
+module.exports = {Users, BlogPosts, Pages, Analytics, Media, mongoose}

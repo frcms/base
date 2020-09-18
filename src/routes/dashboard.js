@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var os = require("os");
+const db = require('../db');
+
+var passlib = require("../password")
 
 //Create function to get CPU information
 function cpuAverage() {
