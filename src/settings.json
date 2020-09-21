@@ -6,5 +6,9 @@
         "password": "",
         "port": "",
         "secure": ""
+    },
+    "slack": {
+        "clientId": "1398928677680.1368355611110",
+        "clientSecret": "c71f1f200e083bdfb4247fdbfc98ac9b"
     }
 }

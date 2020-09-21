@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const auth = require("./dbauth.json")
 
-mongoose.connect(auth.uri, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(auth.uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 
 mongoose.connection.on("open", function(ref) {
     console.log("Connected to the MongoDB server.");

@@ -53,27 +53,36 @@ function GetCPUPercentage() {
 
 }
 
-var socket = require('../socketapi')
+// var socket = require('../socketapi')
 
-var count = 0
-socket.io.on('connection', function(client) {
-    count++;
-    client.on('disconnect', function(){
-        count--;
-    })
-})
+// var count = 0
+// socket.io.on('connection', function(client) {
+//     count++;
+//     client.on('disconnect', function(){
+//         count--;
+//     })
+// })
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   var user
+  var siteUsers
   await db.Users.findOne({ "userData.token": req.session.token }, function (err, doc) {
     if (err) return console.error(err)
     user = doc.toObject()
   })
+  await db.Users.countDocuments({}, function(err, c) {
+    if (err) return console.error(err)
+
+    siteUsers = c
+    
+  })
   res.render('admin/dash', {
     "cpu": GetCPUPercentage(),
-    "connected": count,
-    "user": user
+    "visitors24": 20,
+    "visitorsTotal": 4395,
+    "user": user,
+    "siteUsers": siteUsers
   });
 });
 

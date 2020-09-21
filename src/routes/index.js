@@ -12,7 +12,15 @@ const editJsonFile = require("edit-json-file");
 let settings = editJsonFile("../settings.json")
 
 router.get('/setup', async function(req, res){
-  res.render('firsttime')
+  db.Users.countDocuments({}, function(err, c) {
+    if (err) return console.error(err)
+    console.log(c)
+    if (c >= 1) {
+      res.redirect('/auth/login')
+    } else {
+      res.render('firsttime')
+    }
+  })
 })
 
 router.post('/setup', async function(req, res){
@@ -32,7 +40,15 @@ router.post('/setup', async function(req, res){
 })
 
 router.get('/setup/mail', async function(req, res){
-  res.render('mailsetup')
+  db.Users.countDocuments({}, function(err, c) {
+    if (err) return console.error(err)
+    console.log(c)
+    if (c >= 1) {
+      res.redirect('/auth/login')
+    } else {
+      res.render('mailsetup')
+    }
+  })
 })
 
 router.post('/setup/mail', async function(req, res) {
@@ -52,5 +68,9 @@ router.post('/setup/mail', async function(req, res) {
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+router.get('/bruh', async function(res, res) {
+  res.send("bruh moment")
+})
 
 module.exports = router;

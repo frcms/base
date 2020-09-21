@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-server"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">CPU Usage</span>
@@ -24,11 +24,11 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-eye"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Visitors in 24 hours</span>
-                <span class="info-box-number">{{ connected }}</span>
+                <span class="info-box-number">{{ visitors24 }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -41,11 +41,11 @@
 
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Sales</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-text">Total Visitors</span>
+                <span class="info-box-number">{{ visitorsTotal }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -54,11 +54,11 @@
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-text">Total Site Users</span>
+                <span class="info-box-number">{{ siteUsers }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -118,7 +118,6 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
                 <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
               </div>
               <!-- /.card-footer -->
@@ -200,7 +199,7 @@
             <!-- PRODUCT LIST -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Recently Added Products</h3>
+                <h3 class="card-title">Recently Added Tasks</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -215,56 +214,11 @@
               <div class="card-body p-0">
                 <ul class="products-list product-list-in-card pl-2 pr-2">
                   <li class="item">
-                    <div class="product-img">
-                      <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                    </div>
                     <div class="product-info">
-                      <a href="javascript:void(0)" class="product-title">Samsung TV
-                        <span class="badge badge-warning float-right">$1800</span></a>
+                      <a href="/dashboard/tasks/taskid" class="product-title">TaskName
+                        <span class="badge badge-warning float-right">TaskTeam</span></a>
                       <span class="product-description">
-                        Samsung 32" 1080p 60Hz LED Smart HDTV.
-                      </span>
-                    </div>
-                  </li>
-                  <!-- /.item -->
-                  <li class="item">
-                    <div class="product-img">
-                      <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                    </div>
-                    <div class="product-info">
-                      <a href="javascript:void(0)" class="product-title">Bicycle
-                        <span class="badge badge-info float-right">$700</span></a>
-                      <span class="product-description">
-                        26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                      </span>
-                    </div>
-                  </li>
-                  <!-- /.item -->
-                  <li class="item">
-                    <div class="product-img">
-                      <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                    </div>
-                    <div class="product-info">
-                      <a href="javascript:void(0)" class="product-title">
-                        Xbox One <span class="badge badge-danger float-right">
-                        $350
-                      </span>
-                      </a>
-                      <span class="product-description">
-                        Xbox One Console Bundle with Halo Master Chief Collection.
-                      </span>
-                    </div>
-                  </li>
-                  <!-- /.item -->
-                  <li class="item">
-                    <div class="product-img">
-                      <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                    </div>
-                    <div class="product-info">
-                      <a href="javascript:void(0)" class="product-title">PlayStation 4
-                        <span class="badge badge-success float-right">$399</span></a>
-                      <span class="product-description">
-                        PlayStation 4 500GB Console (PS4)
+                        TaskDesc
                       </span>
                     </div>
                   </li>
@@ -273,7 +227,7 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer text-center">
-                <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                <a href="/dashboard/tasks" class="uppercase">View All Tasks</a>
               </div>
               <!-- /.card-footer -->
             </div>

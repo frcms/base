@@ -4,11 +4,15 @@ var router = express.Router();
 
 var passlib = require("../password")
 
+var settings = require("../../settings.json")
+
 var crypto = require('crypto');
 const e = require('express');
 
 router.get('/login', async function(req, res) {
-    res.render('admin/login')
+    res.render('admin/login', {
+        "settings": settings
+    })
 })
   
 router.post('/login', function(req, res) {
