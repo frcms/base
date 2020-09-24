@@ -12,6 +12,6 @@ COPY . .
 
 EXPOSE $PORT
 
-RUN cd ./src
+RUN cd ./src && ls
 
-CMD ["node", "./src/bin/www"]
+CMD ["node", "/usr/src/app/src/bin/www"]
