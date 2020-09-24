@@ -14,4 +14,4 @@ EXPOSE $PORT
 
 RUN cd ./src
 
-CMD ["node", "./bin/www"]
+CMD ["node", "./src/bin/www"]
