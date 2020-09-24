@@ -5,7 +5,11 @@
 ## FRCMS is a Content Management System made specifically for First Robotic Competition teams.
 
 ## Stuff for Devs
+<<<<<<< HEAD
 FRCMS was created using Express.JS and Nunjucks, alongside with MongoDB as a database, and [AdminLTE](https://github.com/ColorlibHQ/AdminLTE) for the Admin panel.
+=======
+FRCMS was created using MERN stack (MongoDB, Express.JS, React.JS, Node.JS), and [CoreUI](https://coreui.io) for the Admin panel.
+>>>>>>> Init
 
 
 ## Installation
