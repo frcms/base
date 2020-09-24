@@ -1,5 +1,6 @@
 # FRCMS
 ![GitHub](https://img.shields.io/github/license/frcms/base?style=for-the-badge)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ac0058befd694666858929f4adec5c9c)](https://app.codacy.com/gh/frcms/base?utm_source=github.com&utm_medium=referral&utm_content=frcms/base&utm_campaign=Badge_Grade)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 ## FRCMS is a Content Management System made specifically for First Robotic Competition teams.
 
