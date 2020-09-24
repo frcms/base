@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 ENV PORT 3000
 
-COPY package*.json ./
+COPY ./src/package*.json ./
 
 RUN npm ci --only=production
 
