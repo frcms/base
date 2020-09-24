@@ -8,8 +8,10 @@ COPY ./src/package*.json ./
 
 RUN npm ci --only=production
 
-COPY ./src .
+COPY . .
 
 EXPOSE $PORT
+
+RUN cd ./src
 
 CMD ["node", "./bin/www"]
